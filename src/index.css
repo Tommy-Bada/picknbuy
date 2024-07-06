@@ -1,0 +1,21 @@
+@import url("https://fonts.cdnfonts.com/css/dm-sans");
+@import url("https://fonts.cdnfonts.com/css/dm-serif-text");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+.logo {
+  font-family: "DM Serif Text", sans-serif;
+}
+.logobox {
+  box-shadow: 0px 0px 200px 225px rgba(255, 255, 255, 1);
+}
