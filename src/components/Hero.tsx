@@ -40,13 +40,13 @@ export function Hero() {
       <div className="lg:flex lg:justify-center">
         <section className="flex flex-col items-center gap-y-[5rem] mt-[9rem] lg:absolute z-20 ">
           {/* lg:bg-logoBlur */}
-          <div className="logobox lg:h-[30rem] lg:w-[30rem] lg:rounded-full lg:flex lg:justify-center  lg:items-center lg:bg-center lg:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-white to-white">
+          <div className="logobox lg:h-[15rem] lg:w-[26rem] lg:rounded-full lg:flex lg:justify-center  lg:items-center lg:bg-center lg:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-white to-white">
             <Logo
               text="text-[3.2rem] lg:text-[4.8rem]"
               icon=" w-[2.9rem] lg:w-[3.9rem]"
             />
           </div>
-          <Search customStyle="bg-searchBackgroundGrey lg:bg-white border-[1px] lg:border-[5px] border-searchBorderGrey lg:border-searchBorderGlassGrey" />
+          <Search customStyle="bg-searchBackgroundGrey lg:bg-white border-[1px] lg:border-[5px] border-searchBorderGrey lg:border-searchBorderGlassGrey lg:mt-[8rem]" />
         </section>
       </div>
       <section className="my-[5rem] lg:my-[8rem]">

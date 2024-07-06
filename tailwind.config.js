@@ -10,6 +10,7 @@ export default {
         inputTextGrey: "#A1A0A7",
         searchBorderGlassGrey: "rgba(5, 41, 77, 0.1)",
         transparentWhite: "rgba(255, 255, 255, 0)",
+        textGrey: "#6F7071",
       },
       backgroundImage: {
         logoBlur: "url('/src/assets/images/Gradient+Blur.png')",
