@@ -38,15 +38,14 @@ export function Hero() {
   return (
     <section>
       <div className="lg:flex lg:justify-center">
-        <section className="flex flex-col items-center gap-y-[5rem] mt-[9rem] lg:absolute z-20 ">
-          {/* lg:bg-logoBlur */}
-          <div className="logobox lg:h-[15rem] lg:w-[26rem] lg:rounded-full lg:flex lg:justify-center  lg:items-center lg:bg-center lg:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-white to-white">
+        <section className="flex flex-col items-center gap-y-[5rem] mt-[15rem] lg:absolute z-20 ">
+          <div className=" border-white border-[1px] logobox lg:h-[15rem] lg:w-[26rem] lg:rounded-full lg:flex lg:justify-center  lg:items-center lg:bg-center lg:bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-white to-white">
             <Logo
               text="text-[3.2rem] lg:text-[4.8rem]"
               icon=" w-[2.9rem] lg:w-[3.9rem]"
             />
           </div>
-          <Search customStyle="bg-searchBackgroundGrey lg:bg-white border-[1px] lg:border-[5px] border-searchBorderGrey lg:border-searchBorderGlassGrey lg:mt-[8rem]" />
+          <Search customStyle="bg-searchBackgroundGrey lg:bg-white border-[1px] lg:border-[8px] border-searchBorderGrey lg:border-searchBorderGlassGrey" />
         </section>
       </div>
       <section className="my-[5rem] lg:my-[8rem]">
@@ -54,7 +53,7 @@ export function Hero() {
           className="flex overflow-x-auto mb-[2.4rem] lg:mb-[3rem]"
           gradient={false}
           direction="right"
-          speed={windowWidth > 1024 ? 80 : 30}
+          speed={windowWidth > 1024 ? 50 : 30}
         >
           <Image src={testImage} />
           <Image src={testImage} />
@@ -70,7 +69,7 @@ export function Hero() {
         <Marquee
           className="flex overflow-x-auto mb-[2.4rem] lg:mb-[3rem]"
           gradient={false}
-          speed={windowWidth > 1024 ? 80 : 30}
+          speed={windowWidth > 1024 ? 50 : 30}
         >
           <Image src={testImage} />
           <Image src={testImage} />
@@ -88,7 +87,7 @@ export function Hero() {
             className="lg:flex overflow-x-auto mb-[2.4rem] lg:mb-[3rem]"
             gradient={false}
             direction="right"
-            speed={windowWidth > 1024 ? 80 : 30}
+            speed={windowWidth > 1024 ? 50 : 30}
           >
             <Image src={testImage} />
             <Image src={testImage} />

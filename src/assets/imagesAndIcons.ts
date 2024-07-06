@@ -5,6 +5,9 @@ import searchIcon from "./icons/search.svg";
 import testImage from "./images/testing-image.jpeg";
 import googleStoreIcon from "./images/google-store.svg";
 import iosStore from "./images/ios-store.svg";
+import dropDown from "./icons/dropdown.svg";
+import filledStar from "./icons/filled-star.svg";
+import unFilledStar from "./icons/unfilled-star.svg";
 export {
   likeIcon,
   cartIcon,
@@ -13,4 +16,7 @@ export {
   testImage,
   googleStoreIcon,
   iosStore,
+  dropDown,
+  filledStar,
+  unFilledStar,
 };
