@@ -23,7 +23,7 @@ export default function Product({
           alt="product image"
           width="100%"
           height="auto"
-          className="rounded-[1.6rem] w-[16rem] h-[16rem] lg:w-[20rem] lg:h-[20rem] object-cover object-right "
+          className="rounded-[1.6rem] w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] object-cover object-right "
         />
       </div>
       <div className="mt-[1rem]">
