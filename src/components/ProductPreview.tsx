@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { likeIcon, linkIcon, testImage } from "../assets/imagesAndIcons";
+import { linkIcon, nikeIcon, testImage } from "../assets/imagesAndIcons";
 import Button from "../shared/Button";
 import Product from "../shared/Product";
 import StarRating from "../shared/StarRating";
@@ -226,7 +226,7 @@ export function ProductPreview() {
           <div className="hidden lg:flex items-center mb-[1rem]">
             <div className="w-[3.2rem] lg:w-[3.2rem] mr-[.6rem] ">
               <img
-                src={testImage}
+                src={nikeIcon}
                 alt="search icon"
                 width="100%"
                 height="auto"
@@ -237,14 +237,14 @@ export function ProductPreview() {
           </div>
           <div className="mb-[1.5rem] hidden sm:flex  justify-between items-center">
             <p className="text-[1.6rem]">Nike sneakers - Anorak</p>
-            <div className="w-[4.4rem] h-[4.4rem] rounded-full border-searchBorderGrey border-[1px] flex justify-center items-center">
+            {/* <div className="w-[4.4rem] h-[4.4rem] rounded-full border-searchBorderGrey border-[1px] flex justify-center items-center">
               <img
                 src={likeIcon}
                 alt="search icon"
                 width="20px"
                 height="20px"
               />
-            </div>
+            </div> */}
           </div>
           <p className="text-[1.6rem] mb-[2rem] hidden sm:block">$100.00</p>
           <div className="flex justify-between items-center mb-[2rem]">
@@ -266,6 +266,7 @@ export function ProductPreview() {
               textColor="text-pnbPurple"
               fontSize="text-[1.4rem] lg:text-[1.6rem]"
               border
+              handleClick={() => {}}
             />
           </div>
           <div className="w-[100%] mb-[3rem] lg:mb-[6rem]">
@@ -274,6 +275,7 @@ export function ProductPreview() {
               text="Buy Now"
               textColor="text-white"
               fontSize="text-[1.4rem] lg:text-[1.6rem]"
+              handleClick={() => navigate("/cart")}
             />
           </div>
           <p className="text-textBlack text-[1.6rem] mb-[1rem]">Description</p>
@@ -297,6 +299,7 @@ export function ProductPreview() {
               fontSize="text-[1.4rem]"
               gap="gap-x-[2rem]"
               flipIcon
+              handleClick={() => {}}
             />
           </div>
           <div className="flex justify-between items-center">
@@ -306,6 +309,7 @@ export function ProductPreview() {
                 text="Shipping Policy"
                 textColor="text-textBlack"
                 fontSize="text-[1.4rem]"
+                handleClick={() => {}}
               />
             </div>
             <div className="w-[49%]">
@@ -314,6 +318,7 @@ export function ProductPreview() {
                 text="Refund Policy"
                 textColor="text-textBlack"
                 fontSize="text-[1.4rem]"
+                handleClick={() => {}}
               />
             </div>
           </div>

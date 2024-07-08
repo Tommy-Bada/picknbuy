@@ -8,6 +8,7 @@ interface ButtonProp {
   iconWidth?: string;
   gap?: string;
   fontSize: string;
+  handleClick: () => void;
 }
 
 export default function Button({
@@ -20,6 +21,7 @@ export default function Button({
   iconWidth,
   gap,
   fontSize,
+  handleClick,
 }: ButtonProp) {
   return (
     <div
@@ -28,6 +30,7 @@ export default function Button({
       } items-center justify-center rounded-[.8rem] py-[1.2rem] ${bg} ${gap} ${
         border && "border-[1px] border-searchBorderGrey"
       }`}
+      onClick={handleClick}
     >
       <p className={`${fontSize} ${textColor}`}>{text}</p>
       {icon && (

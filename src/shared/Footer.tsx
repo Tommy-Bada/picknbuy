@@ -30,7 +30,7 @@ export default function Footer() {
           <ul>
             <li className="mb-[1rem]">
               <a href="#" className="text-[1.4rem] text-textGrey ">
-                Shop Pay
+                Pick n Buy
               </a>
             </li>
             <li className="mb-[1rem]">

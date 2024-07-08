@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import ProductInfo from "./pages/productInfo";
+import Cart from "./pages/cart";
 
 function App() {
   const element = useRoutes([
@@ -12,8 +13,11 @@ function App() {
     },
     {
       path: "/product",
-      // element: isLoggedIn ? <Navigate to="/dashboard" /> : <Home />,
       element: <ProductInfo />,
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
     },
   ]);
 
