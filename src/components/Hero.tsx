@@ -45,7 +45,9 @@ export function Hero() {
               icon=" w-[2.9rem] lg:w-[3.9rem]"
             />
           </div>
-          <Search customStyle="bg-searchBackgroundGrey lg:bg-white border-[1px] lg:border-[8px] border-searchBorderGrey lg:border-searchBorderGlassGrey" />
+          <div className="lg:w-[50rem] w-[80%]">
+            <Search customStyle="bg-searchBackgroundGrey lg:bg-white border-[1px] lg:border-[8px] border-searchBorderGrey lg:border-searchBorderGlassGrey" />
+          </div>
         </section>
       </div>
       <section className="my-[5rem] lg:my-[8rem]">

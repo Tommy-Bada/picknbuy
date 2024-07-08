@@ -136,7 +136,7 @@ const sampleReview = [
 export function ProductPreview() {
   const navigate = useNavigate();
   return (
-    <section className="px-[2rem] lg:px-[10rem] mt-[5rem] mb-[9rem]">
+    <section className="px-[2rem] lg:px-[7rem] mt-[5rem] mb-[9rem]">
       <div className="lg:flex justify-between">
         <div className=" flex flex-col lg:items-center w-[100%] lg:w-[65%]">
           <div>
