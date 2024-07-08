@@ -2,6 +2,7 @@ import { useState } from "react";
 import FilterButton from "../shared/FilterButton";
 import { testImage } from "../assets/imagesAndIcons";
 import Product from "../shared/Product";
+import { useNavigate } from "react-router-dom";
 const sampleProducts = [
   {
     src: testImage,
@@ -10,6 +11,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -18,6 +20,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -26,6 +29,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -34,6 +38,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -42,6 +47,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -50,6 +56,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -58,6 +65,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -66,6 +74,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -74,6 +83,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -82,6 +92,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -90,6 +101,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -98,6 +110,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -106,6 +119,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -114,6 +128,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -122,6 +137,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -130,6 +146,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -138,6 +155,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -146,6 +164,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -154,6 +173,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -162,6 +182,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -170,6 +191,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -178,6 +200,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -186,6 +209,7 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
   {
     src: testImage,
@@ -194,9 +218,11 @@ const sampleProducts = [
     rating: 4,
     count: 10,
     price: 55.55,
+    id: "product",
   },
 ];
 export default function Products() {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState<string>("");
   return (
     <section className="px-[2rem] lg:px-[7rem] pt-[4rem] lg:pt-[8rem] pb-[10rem] lg:pb-[20rem]">
@@ -249,6 +275,7 @@ export default function Products() {
             rating={item.rating}
             count={item.count}
             price={item.price}
+            handleClick={() => navigate(`/${item.id}`)}
           />
         ))}
       </div>

@@ -12,6 +12,7 @@ export default {
         transparentWhite: "rgba(255, 255, 255, 0)",
         textGrey: "#6F7071",
         textBlack: "#242424",
+        reviewTextGrey: "#5F6D7E",
       },
       backgroundImage: {
         logoBlur: "url('/src/assets/images/Gradient+Blur.png')",

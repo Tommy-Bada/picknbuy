@@ -18,7 +18,9 @@ export default function Header({ withSearch }: HeaderProps) {
         />
       )}
       {withSearch && (
-        <Search customStyle="bg-searchBackgroundGrey border-[1px] border-searchBorderGrey" />
+        <div className="max-sm:hidden w-[45%]">
+          <Search customStyle="bg-searchBackgroundGrey border-[1px] border-searchBorderGrey" />
+        </div>
       )}
       <div className="flex justify-end items-center">
         <div className="w-[2.4rem] lg:w-[3.2rem]">

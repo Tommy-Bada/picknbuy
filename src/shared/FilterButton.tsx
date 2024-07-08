@@ -21,7 +21,7 @@ export default function FilterButton({
   return (
     <div className="flex items-center px-[1rem] lg:px-[2rem] rounded-[1.6rem] py-[.6rem] lg:py-[1.2rem] border-[1px] w-[max-content] relative">
       <select
-        className="text-[1.4rem] outline-none appearance-none text-textBlack"
+        className="text-[1.4rem] outline-none appearance-none text-textBlack bg-transparent"
         name={name}
         onChange={onChange as ChangeEventHandler<HTMLSelectElement>}
         value={selectedValue}

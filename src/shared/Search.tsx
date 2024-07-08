@@ -5,7 +5,7 @@ interface SearchProps {
 export default function Search({ customStyle }: SearchProps) {
   return (
     <div
-      className={`px-[3rem] rounded-[1.6rem] py-[1.5rem] ${customStyle} w-[80%] lg:w-[50rem] flex items-center`}
+      className={`px-[3rem] rounded-[1.6rem] py-[1.5rem] ${customStyle} w-[100%] flex items-center`}
     >
       <div className="w-[1.3rem] lg:w-[1.3rem] mr-[1rem]">
         <img src={searchIcon} alt="search icon" width="100%" height="auto" />

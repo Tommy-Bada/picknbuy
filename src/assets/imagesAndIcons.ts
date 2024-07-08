@@ -8,6 +8,9 @@ import iosStore from "./images/ios-store.svg";
 import dropDown from "./icons/dropdown.svg";
 import filledStar from "./icons/filled-star.svg";
 import unFilledStar from "./icons/unfilled-star.svg";
+import linkIcon from "./icons/SVG.svg";
+import payIcon from "./icons/solar_card-linear.svg";
+import addedIcon from "./icons/tick-circle.svg";
 export {
   likeIcon,
   cartIcon,
@@ -19,4 +22,7 @@ export {
   dropDown,
   filledStar,
   unFilledStar,
+  linkIcon,
+  payIcon,
+  addedIcon,
 };

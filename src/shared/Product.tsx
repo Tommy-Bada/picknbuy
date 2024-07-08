@@ -6,6 +6,7 @@ interface ProductProps {
   rating: number;
   count: number;
   price: number;
+  handleClick: () => void;
 }
 export default function Product({
   src,
@@ -14,9 +15,10 @@ export default function Product({
   rating,
   count,
   price,
+  handleClick,
 }: ProductProps) {
   return (
-    <div>
+    <div onClick={handleClick} className="cursor-pointer">
       <div>
         <img
           src={src}
