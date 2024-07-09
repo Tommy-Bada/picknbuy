@@ -228,19 +228,21 @@ export default function Products() {
           }}
         />
       </div> */}
-      <div className="flex flex-wrap gap-x-[2rem] gap-y-[3rem] justify-center">
-        {sampleProducts.map((item, index) => (
-          <Product
-            key={index}
-            src={item.src}
-            name={item.name}
-            gender={item.gender}
-            rating={item.rating}
-            count={item.count}
-            price={item.price}
-            handleClick={() => navigate(`/${item.url}`)}
-          />
-        ))}
+      <div className="mx-auto">
+        <div className="flex flex-wrap gap-x-[2rem] gap-y-[3rem] justify-start">
+          {sampleProducts.map((item, index) => (
+            <Product
+              key={index}
+              src={item.src}
+              name={item.name}
+              gender={item.gender}
+              rating={item.rating}
+              count={item.count}
+              price={item.price}
+              handleClick={() => navigate(`/${item.url}`)}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
