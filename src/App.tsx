@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/home";
 import ProductInfo from "./pages/productInfo";
 import Cart from "./pages/cart";
+import Checkout from "./pages/checkout";
 
 function App() {
   const element = useRoutes([
@@ -18,6 +19,10 @@ function App() {
     {
       path: "/cart",
       element: <Cart />,
+    },
+    {
+      path: "/checkout",
+      element: <Checkout />,
     },
   ]);
 

@@ -119,7 +119,9 @@ export default function CartBox() {
               text="Continue to checkout"
               textColor="text-white"
               fontSize="text-[1.4rem] lg:text-[1.6rem]"
-              handleClick={() => {}}
+              handleClick={() => {
+                navigate("/checkout");
+              }}
             />
           </div>
           <p className="text-[1.4rem] lg:text-[1.6rem] text-textGrey text-center">
