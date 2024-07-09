@@ -229,7 +229,7 @@ export default function Products() {
         />
       </div> */}
       <div className="mx-auto">
-        <div className="flex flex-wrap gap-x-[2rem] gap-y-[3rem] justify-start">
+        <div className="flex flex-wrap gap-x-[2rem] gap-y-[3rem] justify-between">
           {sampleProducts.map((item, index) => (
             <Product
               key={index}

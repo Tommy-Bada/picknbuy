@@ -14,10 +14,12 @@ export default function Header({ withSearch }: HeaderProps) {
       } items-center p-[2rem] lg:px-[10rem]`}
     >
       {withSearch && (
-        <Logo
-          text="text-[1.8rem] lg:text-[2.4rem]"
-          icon="w-[1.6rem] lg:w-[2.5rem]"
-        />
+        <div onClick={() => navigate("/")} className="cursor-pointer">
+          <Logo
+            text="text-[1.8rem] lg:text-[2.4rem]"
+            icon="w-[1.6rem] lg:w-[2.5rem]"
+          />
+        </div>
       )}
       {withSearch && (
         <div className="max-sm:hidden w-[45%]">
