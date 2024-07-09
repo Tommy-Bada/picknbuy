@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { cartIcon, likeIcon } from "../assets/imagesAndIcons";
+import { cartIcon } from "../assets/imagesAndIcons";
 import Logo from "./Logo";
 import Search from "./Search";
 interface HeaderProps {
@@ -25,9 +25,9 @@ export default function Header({ withSearch }: HeaderProps) {
         </div>
       )}
       <div className="flex justify-end items-center">
-        <div className="w-[2.4rem] lg:w-[3.2rem]">
+        {/* <div className="w-[2.4rem] lg:w-[3.2rem]">
           <img src={likeIcon} alt="likes icon" width="100%" height="auto" />
-        </div>
+        </div> */}
         <div
           className="w-[2.4rem] lg:w-[3.2rem] mx-[2rem] sm:mx-[3.5rem] cursor-pointer"
           onClick={() => navigate("/cart")}

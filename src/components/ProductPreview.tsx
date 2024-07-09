@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { linkIcon, nikeIcon, testImage } from "../assets/imagesAndIcons";
+import { nikeIcon, testImage } from "../assets/imagesAndIcons";
 import Button from "../shared/Button";
 import Product from "../shared/Product";
 import StarRating from "../shared/StarRating";
@@ -275,7 +275,7 @@ export function ProductPreview() {
               text="Buy Now"
               textColor="text-white"
               fontSize="text-[1.4rem] lg:text-[1.6rem]"
-              handleClick={() => navigate("/cart")}
+              handleClick={() => navigate("/checkout")}
             />
           </div>
           <p className="text-textBlack text-[1.6rem] mb-[1rem]">Description</p>
@@ -289,7 +289,7 @@ export function ProductPreview() {
             ride bikes,build con...{" "}
             <span className="text-[1.3rem]">View More</span>
           </p>
-          <div className="w-[100%] mb-[.8rem]">
+          {/* <div className="w-[100%] mb-[.8rem]">
             <Button
               bg={"bg-searchBackgroundGrey"}
               text="More details at Nike"
@@ -301,8 +301,8 @@ export function ProductPreview() {
               flipIcon
               handleClick={() => {}}
             />
-          </div>
-          <div className="flex justify-between items-center">
+          </div> */}
+          {/* <div className="flex justify-between items-center">
             <div className="w-[49%]">
               <Button
                 bg={"bg-searchBackgroundGrey"}
@@ -321,7 +321,7 @@ export function ProductPreview() {
                 handleClick={() => {}}
               />
             </div>
-          </div>
+          </div> */}
           <div className="w-[100%] mt-[4rem] block sm:hidden ">
             <div className="flex gap-x-[1.2rem] mb-[2rem]">
               <p className="text-[1.6rem] font-[500] text-textBlack">Reviews</p>
