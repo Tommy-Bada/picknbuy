@@ -28,7 +28,7 @@ export default function Product({
           className="rounded-[1.6rem] w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] object-cover object-center "
         />
       </div>
-      <div className="mt-[1rem]  w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem]">
+      <div className="mt-[1rem]  w-[15rem]  lg:w-[20rem] ">
         <p className="text-textBlack text-[1.4rem] lg:text-[1.6rem]">
           {name}{" "}
           <span className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem] lg:ml-[.8rem] ml-[.4rem]">{`(${gender})`}</span>

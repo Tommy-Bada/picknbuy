@@ -1,5 +1,3 @@
-import { useState } from "react";
-import FilterButton from "../shared/FilterButton";
 import Product from "../shared/Product";
 import { useNavigate } from "react-router-dom";
 const sampleProducts = [
@@ -25,8 +23,8 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556224/picknbuy/Rectangle_29_veyqmr.png",
-    name: "Winter Jean Jacket",
-    gender: "Male",
+    name: "Nike sneakers",
+    gender: "Unisex",
     rating: 4,
     count: 10,
     price: 1000,
@@ -35,7 +33,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556226/picknbuy/Rectangle_31_k56vzw.png",
-    name: "Winter Jean Jacket",
+    name: "Swiss Jeans",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -45,7 +43,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556226/picknbuy/Rectangle_32_kaark7.png",
-    name: "Winter Jean Jacket",
+    name: "Nike black",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -55,7 +53,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556232/picknbuy/Rectangle_40_uqrdhd.png",
-    name: "Winter Jean Jacket",
+    name: "Nike air",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -65,7 +63,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556233/picknbuy/Rectangle_41_gir3ka.png",
-    name: "Winter Jean Jacket",
+    name: "Kinetix T-shirt",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -75,7 +73,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556234/picknbuy/Rectangle_39_kwistf.png",
-    name: "Winter Jean Jacket",
+    name: "Brown suede brogue",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -85,8 +83,8 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557265/picknbuy/Rectangle_50_jsuyvk.png",
-    name: "Winter Jean Jacket",
-    gender: "Male",
+    name: "Flower dress",
+    gender: "Female",
     rating: 4,
     count: 10,
     price: 1000,
@@ -95,7 +93,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557261/picknbuy/Rectangle_48_mr9soe.png",
-    name: "Winter Jean Jacket",
+    name: "Kinetix shirts",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -105,7 +103,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557262/picknbuy/Rectangle_43_ijxddj.png",
-    name: "Winter Jean Jacket",
+    name: "Nike shoe",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -115,8 +113,8 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557264/picknbuy/Rectangle_49_jfhqut.png",
-    name: "Winter Jean Jacket",
-    gender: "Male",
+    name: "Louis vuitton",
+    gender: "Female",
     rating: 4,
     count: 10,
     price: 1000,
@@ -125,7 +123,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557265/picknbuy/Rectangle_47_qdzwe7.png",
-    name: "Winter Jean Jacket",
+    name: "Next leather loafer",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -135,7 +133,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557266/picknbuy/Rectangle_46_gbrs82.png",
-    name: "Winter Jean Jacket",
+    name: "Zara shoe",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -145,7 +143,7 @@ const sampleProducts = [
   },
   {
     src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557271/picknbuy/Rectangle_45_qugl9k.png",
-    name: "Winter Jean Jacket",
+    name: "Next shirts",
     gender: "Male",
     rating: 4,
     count: 10,
@@ -156,11 +154,13 @@ const sampleProducts = [
 ];
 export default function Products() {
   const navigate = useNavigate();
-  const [sortBy, setSortBy] = useState<string>("");
+  // const [sortBy, setSortBy] = useState<string>("");
   return (
-    <section className="px-[2rem] lg:px-[7rem] pt-[4rem] lg:pt-[8rem] pb-[10rem] lg:pb-[20rem]">
-      <h2 className="text-[2.4rem] text-pnbPurple font-[500]">Products</h2>
-      <div className="flex items-center gap-x-[1.6rem] my-[4rem]">
+    <section className="px-[2rem] lg:px-[7rem] pt-[4rem] lg:pt-[8rem] pb-[7rem] lg:pb-[12rem]">
+      <h2 className="text-[2.4rem] text-pnbPurple font-[500] mb-[3rem]">
+        Products
+      </h2>
+      {/* <div className="flex items-center gap-x-[1.6rem] my-[4rem]">
         <FilterButton
           options={[
             { label: "Sort by", value: "" },
@@ -197,8 +197,8 @@ export default function Products() {
             setSortBy(event.target.value);
           }}
         />
-      </div>
-      <div className="flex flex-wrap gap-x-[2rem] gap-y-[3rem] justify-between">
+      </div> */}
+      <div className="flex flex-wrap gap-x-[2rem] gap-y-[3rem] justify-center">
         {sampleProducts.map((item, index) => (
           <Product
             key={index}
