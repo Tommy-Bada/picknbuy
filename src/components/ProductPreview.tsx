@@ -311,7 +311,7 @@ export function ProductPreview() {
             <div className="w-[100%] mb-[1.6rem]">
               <Button
                 bg={"bg-transparent"}
-                text="Add to cart"
+                text="Added to cart"
                 textColor="text-pnbPurple"
                 fontSize="text-[1.4rem] lg:text-[1.6rem]"
                 border
