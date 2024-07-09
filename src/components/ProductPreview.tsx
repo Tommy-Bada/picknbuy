@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import {
   addSizeIcon,
+  addedIcon,
   nikeIcon,
   reduceSizeIcon,
   testImage,
@@ -132,6 +133,7 @@ const sampleReview = [
 export function ProductPreview() {
   const [quantity, setQuantity] = useState<number>(1);
   const [size, setSize] = useState<number>(38);
+  const [addedToCart, setAddedToCart] = useState<boolean>(false);
   const navigate = useNavigate();
   return (
     <section className="px-[2rem] lg:px-[7rem] mt-[5rem] mb-[9rem]">
@@ -305,16 +307,35 @@ export function ProductPreview() {
               </div>
             </div>
           </div>
-          <div className="w-[100%] mb-[1.6rem]">
-            <Button
-              bg={"bg-transparent"}
-              text="Add to cart"
-              textColor="text-pnbPurple"
-              fontSize="text-[1.4rem] lg:text-[1.6rem]"
-              border
-              handleClick={() => {}}
-            />
-          </div>
+          {addedToCart ? (
+            <div className="w-[100%] mb-[1.6rem]">
+              <Button
+                bg={"bg-transparent"}
+                text="Add to cart"
+                textColor="text-pnbPurple"
+                fontSize="text-[1.4rem] lg:text-[1.6rem]"
+                border
+                icon={addedIcon}
+                gap="gap-x-[1rem]"
+                handleClick={() => {
+                  setAddedToCart(false);
+                }}
+              />
+            </div>
+          ) : (
+            <div className="w-[100%] mb-[1.6rem]">
+              <Button
+                bg={"bg-transparent"}
+                text="Add to cart"
+                textColor="text-pnbPurple"
+                fontSize="text-[1.4rem] lg:text-[1.6rem]"
+                border
+                handleClick={() => {
+                  setAddedToCart(true);
+                }}
+              />
+            </div>
+          )}
           <div className="w-[100%] mb-[3rem] lg:mb-[6rem]">
             <Button
               bg={"bg-pnbPurple"}
