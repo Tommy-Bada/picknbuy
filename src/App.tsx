@@ -4,8 +4,10 @@ import Home from "./pages/home";
 import ProductInfo from "./pages/productInfo";
 import Cart from "./pages/cart";
 import Checkout from "./pages/checkout";
+import useScrollToTop from "./shared/UseScrollTop.ts";
 
 function App() {
+  useScrollToTop();
   const element = useRoutes([
     {
       path: "/",
