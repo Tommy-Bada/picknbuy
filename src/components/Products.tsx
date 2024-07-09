@@ -151,6 +151,36 @@ const sampleProducts = [
     url: "product",
     id: 1,
   },
+  {
+    src: " https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720555815/picknbuy/Rectangle_28_zkav4y.png",
+    name: "Winter Jean Jacket",
+    gender: "Male",
+    rating: 4,
+    count: 10,
+    price: 840,
+    url: "product",
+    id: 1,
+  },
+  {
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556232/picknbuy/Rectangle_40_uqrdhd.png",
+    name: "Nike air",
+    gender: "Male",
+    rating: 4,
+    count: 10,
+    price: 3000,
+    url: "product",
+    id: 1,
+  },
+  {
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556226/picknbuy/Rectangle_32_kaark7.png",
+    name: "Nike black",
+    gender: "Male",
+    rating: 4,
+    count: 10,
+    price: 1020,
+    url: "product",
+    id: 1,
+  },
 ];
 export default function Products() {
   const navigate = useNavigate();
