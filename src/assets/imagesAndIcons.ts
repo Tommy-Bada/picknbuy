@@ -16,6 +16,9 @@ import mastercard from "./images/logos_mastercard.svg";
 import verve from "./images/verve.svg";
 import receiptIcon from "./icons/receipt-2.svg";
 import successIcon from "./icons/Success.svg";
+import addSizeIcon from "./icons/Vector-2.svg";
+import reduceSizeIcon from "./icons/Vector-3.svg";
+import deleteIcon from "./icons/Vector.svg";
 export {
   likeIcon,
   cartIcon,
@@ -35,4 +38,7 @@ export {
   verve,
   receiptIcon,
   successIcon,
+  addSizeIcon,
+  reduceSizeIcon,
+  deleteIcon,
 };

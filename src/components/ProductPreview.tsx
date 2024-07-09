@@ -1,8 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { nikeIcon, testImage } from "../assets/imagesAndIcons";
+import {
+  addSizeIcon,
+  nikeIcon,
+  reduceSizeIcon,
+  testImage,
+} from "../assets/imagesAndIcons";
 import Button from "../shared/Button";
 import Product from "../shared/Product";
 import StarRating from "../shared/StarRating";
+import { useState } from "react";
 interface ReviewBoxProp {
   num: number;
   name: string;
@@ -134,6 +140,8 @@ const sampleReview = [
 ];
 
 export function ProductPreview() {
+  const [quantity, setQuantity] = useState<number>(1);
+  const [size, setSize] = useState<number>(38);
   const navigate = useNavigate();
   return (
     <section className="px-[2rem] lg:px-[7rem] mt-[5rem] mb-[9rem]">
@@ -253,11 +261,59 @@ export function ProductPreview() {
           </div>
           <div className="flex justify-between items-center mb-[2rem]">
             <p className="text-[1.6rem]">Size</p>
-            <div className="text-[1.4rem]">42</div>
+            <div className="flex items-center">
+              <div className="text-[1.4rem]">{size}</div>
+              <div>
+                <div
+                  className="px-[1.4rem] py-[.6rem] cursor-pointer"
+                  onClick={() => {
+                    size < 49 && setSize((prev) => prev + 1);
+                  }}
+                >
+                  <img
+                    src={addSizeIcon}
+                    alt="search icon"
+                    width="9px"
+                    height="auto"
+                  />
+                </div>
+                <div
+                  className="px-[1.4rem] py-[.6rem] cursor-pointer"
+                  onClick={() => {
+                    size > 38 && setSize((prev) => prev - 1);
+                  }}
+                >
+                  <img
+                    src={reduceSizeIcon}
+                    alt="search icon"
+                    width="9px"
+                    height="auto"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="flex justify-between items-center mb-[2rem]">
             <p className="text-[1.6rem]">Quantity</p>
-            <div className="text-[1.4rem]">1</div>
+            <div className="flex items-center">
+              <div
+                className="text-[1.4rem] bg-searchBackgroundGrey py-[1rem] px-[1.5rem] rounded-tl-[.8rem] rounded-bl-[.8rem] cursor-pointer"
+                onClick={() => {
+                  quantity > 1 && setQuantity((prev) => prev - 1);
+                }}
+              >
+                -
+              </div>
+              <div className="text-[1.4rem] bg-searchBackgroundGrey py-[1rem] px-[1.5rem]">
+                {quantity}
+              </div>
+              <div
+                className="text-[1.4rem] bg-searchBackgroundGrey py-[1rem] px-[1.5rem] rounded-tr-[.8rem] rounded-br-[.8rem] cursor-pointer"
+                onClick={() => setQuantity((prev) => prev + 1)}
+              >
+                +
+              </div>
+            </div>
           </div>
           <div className="w-[100%] mb-[1.6rem]">
             <Button
@@ -288,6 +344,13 @@ export function ProductPreview() {
             sales go to WABA, supporting their mission. Empowering people to
             ride bikes,build con...{" "}
             <span className="text-[1.3rem]">View More</span>
+          </p>
+          <p className="text-textBlack text-[1.3rem] mb-[1rem]">
+            The Nike WABA is also a running shoe designed for athletes who
+            demand peak performance. It features a revolutionary new cushioning
+            system that delivers an incredibly energetic ride. The breathable
+            knit upper and sleek design make this shoe both functional and
+            stylish.
           </p>
           {/* <div className="w-[100%] mb-[.8rem]">
             <Button

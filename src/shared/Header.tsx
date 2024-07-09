@@ -24,7 +24,7 @@ export default function Header({ withSearch }: HeaderProps) {
           <Search customStyle="bg-searchBackgroundGrey border-[1px] border-searchBorderGrey" />
         </div>
       )}
-      <div className="flex justify-end items-center">
+      <div className="flex justify-end items-end">
         {/* <div className="w-[2.4rem] lg:w-[3.2rem]">
           <img src={likeIcon} alt="likes icon" width="100%" height="auto" />
         </div> */}
@@ -34,7 +34,7 @@ export default function Header({ withSearch }: HeaderProps) {
         >
           <img src={cartIcon} alt="cart icon" width="100%" height="auto" />
         </div>
-        <div className="w-[2.4rem] lg:w-[3.2rem] h-[2.4rem] lg:h-[3.2rem] rounded-full bg-pnbPurple flex justify-center items-center"></div>
+        {/* <div className="w-[2.4rem] lg:w-[3.2rem] h-[2.4rem] lg:h-[3.2rem] rounded-full bg-pnbPurple flex justify-center items-center"></div> */}
       </div>
     </header>
   );

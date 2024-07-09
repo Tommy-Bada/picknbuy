@@ -5,7 +5,7 @@ interface Option {
 }
 interface InputProps {
   name: string;
-  value: string | number;
+  value?: string | number;
   onChange?:
     | ChangeEventHandler<HTMLSelectElement>
     | ChangeEventHandler<HTMLInputElement>;
@@ -26,7 +26,7 @@ export default function InputField({
   name,
   onChange,
   onBlur,
-  value,
+  // value,
   placeholder,
   norm,
   isDisabled,
@@ -49,9 +49,9 @@ export default function InputField({
               type={type}
               placeholder={placeholder}
               name={name}
-              onChange={onChange as ChangeEventHandler<HTMLInputElement>}
+              // onChange={onChange as ChangeEventHandler<HTMLInputElement>}
               onBlur={onBlur}
-              value={value}
+              // value={value}
               className={`text-formInputGrey text-[1.4rem] w-[100%] outline-none bg-transparent p-[1.6rem] ${
                 flat ? flat : "rounded-[.8rem]"
               }  border-[1px]`}
@@ -69,7 +69,7 @@ export default function InputField({
               <select
                 name={name}
                 onChange={onChange as ChangeEventHandler<HTMLSelectElement>}
-                value={value}
+                // value={value}
                 className="text-formInputGrey text-[1.4rem] w-[100%] outline-none bg-transparent h-[3.5rem]"
                 disabled={isDisabled}
                 multiple={isMultiple}

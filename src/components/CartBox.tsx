@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { nikeIcon, testImage } from "../assets/imagesAndIcons";
+import { deleteIcon, nikeIcon, testImage } from "../assets/imagesAndIcons";
 import Button from "../shared/Button";
 import Product from "../shared/Product";
+import { useState } from "react";
 const sampleProducts = [
   {
     src: testImage,
@@ -59,6 +60,7 @@ const sampleProducts = [
   },
 ];
 export default function CartBox() {
+  const [quantity, setQuantity] = useState<number>(1);
   const navigate = useNavigate();
   return (
     <section className="px-[2rem] lg:px-[7rem] pt-[4rem] lg:pt-[8rem] pb-[7rem] lg:pb-[10rem]">
@@ -100,7 +102,25 @@ export default function CartBox() {
                   Randy orange / 42
                 </p>
               </div>
-              <div className="text-[1.4rem] lg:text-[1.6rem]">1</div>
+              <div className="flex items-center">
+                <div
+                  className=" bg-searchBackgroundGrey py-[1.2rem] px-[1.5rem] rounded-tl-[.8rem] rounded-bl-[.8rem] cursor-pointer"
+                  onClick={() => {
+                    quantity > 1 && setQuantity(0);
+                  }}
+                >
+                  <img src={deleteIcon} />
+                </div>
+                <div className="text-[1.4rem] bg-searchBackgroundGrey py-[1rem] px-[1.5rem]">
+                  {quantity}
+                </div>
+                <div
+                  className="text-[1.4rem] bg-searchBackgroundGrey py-[1rem] px-[1.5rem] rounded-tr-[.8rem] rounded-br-[.8rem] cursor-pointer"
+                  onClick={() => setQuantity((prev) => prev + 1)}
+                >
+                  +
+                </div>
+              </div>
             </div>
           </div>
         </div>
