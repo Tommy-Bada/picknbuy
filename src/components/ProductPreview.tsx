@@ -198,7 +198,7 @@ export function ProductPreview() {
                 {gender}
               </span>
             </p>
-            <div className="flex">
+            <div className="flex items-center">
               <StarRating rating={4} />
               <p className="text-textBlack text-[1.4rem] lg:text-[1.6rem]">
                 10
@@ -252,10 +252,10 @@ export function ProductPreview() {
             </div> */}
           </div>
           <p className="text-[1.6rem] mb-[2rem] hidden sm:block">${price}</p>
-          <div className="flex justify-between items-center mb-[2rem]">
+          {/* <div className="flex justify-between items-center mb-[2rem]">
             <p className="text-[1.6rem]">Color</p>
             <div className="text-[1.4rem]">Randy Orange</div>
-          </div>
+          </div> */}
           <div className="flex justify-between items-center mb-[2rem]">
             <p className="text-[1.6rem]">Size</p>
             <div className="flex items-center">
