@@ -5,58 +5,64 @@ import Product from "../shared/Product";
 import { useState } from "react";
 const sampleProducts = [
   {
-    src: testImage,
-    name: "Rolex watch",
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556232/picknbuy/Rectangle_40_uqrdhd.png",
+    name: "Nike air",
     gender: "Male",
     rating: 4,
     count: 10,
-    price: 55.55,
-    id: "product",
+    price: 3000,
+    url: "product",
+    id: 1,
   },
   {
-    src: testImage,
-    name: "Rolex watch",
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556233/picknbuy/Rectangle_41_gir3ka.png",
+    name: "Kinetix T-shirt",
     gender: "Male",
     rating: 4,
     count: 10,
-    price: 55.55,
-    id: "product",
+    price: 2300,
+    url: "product",
+    id: 1,
   },
   {
-    src: testImage,
-    name: "Rolex watch",
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720556234/picknbuy/Rectangle_39_kwistf.png",
+    name: "Brown suede brogue",
     gender: "Male",
     rating: 4,
     count: 10,
-    price: 55.55,
-    id: "product",
+    price: 4500,
+    url: "product",
+    id: 1,
   },
   {
-    src: testImage,
-    name: "Rolex watch",
-    gender: "Male",
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557265/picknbuy/Rectangle_50_jsuyvk.png",
+    name: "Flower dress",
+    gender: "Female",
     rating: 4,
     count: 10,
-    price: 55.55,
-    id: "product",
+    price: 3800,
+    url: "product",
+    id: 1,
   },
   {
-    src: testImage,
-    name: "Rolex watch",
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557261/picknbuy/Rectangle_48_mr9soe.png",
+    name: "Kinetix shirts",
     gender: "Male",
     rating: 4,
     count: 10,
-    price: 55.55,
-    id: "product",
+    price: 1220,
+    url: "product",
+    id: 1,
   },
   {
-    src: testImage,
-    name: "Rolex watch",
+    src: "https://res.cloudinary.com/dhuoa5mmo/image/upload/v1720557262/picknbuy/Rectangle_43_ijxddj.png",
+    name: "Nike shoe",
     gender: "Male",
     rating: 4,
     count: 10,
-    price: 55.55,
-    id: "product",
+    price: 2220,
+    url: "product",
+    id: 1,
   },
 ];
 export default function CartBox() {
@@ -163,7 +169,7 @@ export default function CartBox() {
               rating={item.rating}
               count={item.count}
               price={item.price}
-              handleClick={() => navigate(`/${item.id}`)}
+              handleClick={() => navigate(`/${item.url}`)}
             />
           ))}
         </div>
