@@ -8,10 +8,17 @@ import {
 import Button from "../shared/Button";
 import InputField from "../shared/InputField";
 import SuccessModal from "../shared/SuccessModal";
+import { useSearchParams } from "react-router-dom";
 
 export default function CheckoutBox() {
   const [modal, setModal] = useState<boolean>(false);
-
+  const [getParams] = useSearchParams();
+  const image = getParams.get("image");
+  const price = getParams.get("price");
+  const name = getParams.get("name");
+  const gender = getParams.get("gender");
+  // const size = getParams.get("size");
+  // const quantity = getParams.get("quantity");
   return (
     <section className="px-[2rem] lg:px-[7rem] mt-[5rem] lg:mt-[7rem] mb-[7rem] lg:mb-[10rem] ">
       <div className="lg:flex justify-between flex max-[1023px]:flex-col-reverse lg:border-t">
@@ -169,7 +176,7 @@ export default function CheckoutBox() {
           <div className="flex mt-[1.6rem] w-[100%]">
             <div className="lg:mr-[2rem] mr-[1rem] w-[18rem] lg:w-[15rem]">
               <img
-                src={testImage}
+                src={image ?? testImage}
                 alt="product image"
                 width="100%"
                 height="auto"
@@ -180,14 +187,14 @@ export default function CheckoutBox() {
               <div>
                 <div className="flex justify-between items-center mb-[1rem] ">
                   <p className="text-[1.6rem] lg:text-[2.4rem] text-textBlack">
-                    Nike sneakers
+                    {name ?? "Product"}
                   </p>
                   <p className="text-textBlack text-[1.6rem] lg:text-[2.4rem]">
-                    $100
+                    ${price ?? 100}
                   </p>
                 </div>
                 <p className="text-reviewTextGrey text-[1.4rem] lg:text-[1.6rem]">
-                  Randy orange / 42
+                  {gender ?? 42}
                 </p>
               </div>
             </div>
@@ -197,7 +204,7 @@ export default function CheckoutBox() {
               Subtotal
             </p>
             <p className="text-textBlack font-[500] text-[1.4rem] lg:text-[1.8rem]">
-              $100
+              ${price ?? 100}
             </p>
           </div>
           <div className="flex items-center justify-between mb-[1rem]">
@@ -205,7 +212,7 @@ export default function CheckoutBox() {
               Total
             </p>
             <p className=" text-textBlack font-[500] text-[1.6rem] lg:text-[2.4rem]">
-              $100
+              ${price ?? 100}
             </p>
           </div>
         </div>

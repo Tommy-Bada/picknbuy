@@ -347,7 +347,11 @@ export function ProductPreview() {
               text="Buy Now"
               textColor="text-white"
               fontSize="text-[1.4rem] lg:text-[1.6rem]"
-              handleClick={() => navigate("/checkout")}
+              handleClick={() =>
+                navigate(
+                  `/checkout?image=${image}&name=${name}&gender=${gender}&price=${price}&size=${size}&quantity=${quantity}`
+                )
+              }
             />
           </div>
           <p className="text-textBlack text-[1.6rem] mb-[1rem]">Description</p>
