@@ -169,7 +169,11 @@ export default function CartBox() {
               rating={item.rating}
               count={item.count}
               price={item.price}
-              handleClick={() => navigate(`/${item.url}`)}
+              handleClick={() =>
+                navigate(
+                  `/${item.url}?image=${item.src}&name=${item.name}&gender=${item.gender}&price=${item.price}`
+                )
+              }
             />
           ))}
         </div>

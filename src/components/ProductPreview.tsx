@@ -1,10 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   addSizeIcon,
   addedIcon,
   nikeIcon,
   reduceSizeIcon,
-  testImage,
 } from "../assets/imagesAndIcons";
 import Button from "../shared/Button";
 import Product from "../shared/Product";
@@ -135,13 +134,19 @@ export function ProductPreview() {
   const [size, setSize] = useState<number>(38);
   const [addedToCart, setAddedToCart] = useState<boolean>(false);
   const navigate = useNavigate();
+  const [getParams] = useSearchParams();
+  const image = getParams.get("image");
+  const price = getParams.get("price");
+  const name = getParams.get("name");
+  const gender = getParams.get("gender");
+
   return (
     <section className="px-[2rem] lg:px-[7rem] mt-[5rem] mb-[9rem]">
       <div className="lg:flex justify-between">
         <div className=" flex flex-col lg:items-center w-[100%] lg:w-[65%]">
           <div>
             <img
-              src={testImage}
+              src={image ?? ""}
               alt="product image"
               width="100%"
               height="auto"
@@ -151,7 +156,7 @@ export function ProductPreview() {
           <div className="hidden lg:flex items-center justify-center gap-x-[1.6rem] lg:my-[4.4rem] ">
             <div>
               <img
-                src={testImage}
+                src={image ?? ""}
                 alt="product image"
                 width="100%"
                 height="auto"
@@ -160,7 +165,7 @@ export function ProductPreview() {
             </div>
             <div>
               <img
-                src={testImage}
+                src={image ?? ""}
                 alt="product image"
                 width="100%"
                 height="auto"
@@ -169,7 +174,7 @@ export function ProductPreview() {
             </div>
             <div>
               <img
-                src={testImage}
+                src={image ?? ""}
                 alt="product image"
                 width="100%"
                 height="auto"
@@ -178,7 +183,7 @@ export function ProductPreview() {
             </div>
             <div>
               <img
-                src={testImage}
+                src={image ?? ""}
                 alt="product image"
                 width="100%"
                 height="auto"
@@ -188,9 +193,9 @@ export function ProductPreview() {
           </div>
           <div className="mt-[1rem] lg:hidden mb-[2rem]">
             <p className="text-textBlack text-[1.4rem] lg:text-[1.6rem]">
-              Nike sneakers{" "}
+              {name}{" "}
               <span className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem] lg:ml-[.8rem] ml-[.4rem]">
-                Unisex
+                {gender}
               </span>
             </p>
             <div className="flex">
@@ -200,7 +205,7 @@ export function ProductPreview() {
               </p>
             </div>
             <p className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem]">
-              $100
+              ${price}
             </p>
           </div>
           <div className="max-sm:w-[100%] max-sm:mx-[-2rem] hidden lg:block">
@@ -233,10 +238,10 @@ export function ProductPreview() {
                 className="rounded-[.4rem] border-searchBorderGrey border-[1px] "
               />
             </div>
-            <p className="text-[1.4rem] text-textBlack">Nike</p>
+            <p className="text-[1.4rem] text-textBlack">{name}</p>
           </div>
           <div className="mb-[1.5rem] hidden sm:flex  justify-between items-center">
-            <p className="text-[1.6rem]">Nike sneakers - Anorak</p>
+            <p className="text-[1.6rem]">{name}</p>
             {/* <div className="w-[4.4rem] h-[4.4rem] rounded-full border-searchBorderGrey border-[1px] flex justify-center items-center">
               <img
                 src={likeIcon}
@@ -246,7 +251,7 @@ export function ProductPreview() {
               />
             </div> */}
           </div>
-          <p className="text-[1.6rem] mb-[2rem] hidden sm:block">$100.00</p>
+          <p className="text-[1.6rem] mb-[2rem] hidden sm:block">${price}</p>
           <div className="flex justify-between items-center mb-[2rem]">
             <p className="text-[1.6rem]">Color</p>
             <div className="text-[1.4rem]">Randy Orange</div>
@@ -430,7 +435,11 @@ export function ProductPreview() {
               rating={item.rating}
               count={item.count}
               price={item.price}
-              handleClick={() => navigate(`/${item.url}`)}
+              handleClick={() =>
+                navigate(
+                  `/${item.url}?image=${item.src}&name=${item.name}&gender=${item.gender}&price=${item.price}`
+                )
+              }
             />
           ))}
         </div>
