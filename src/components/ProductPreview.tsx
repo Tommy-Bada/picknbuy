@@ -12,7 +12,12 @@ interface ReviewBoxProp {
   date: string;
   review: string;
 }
-
+type ExtraInfo = {
+  id: string;
+  key: string;
+  value: string;
+  value_dt: string | null;
+};
 interface CartItem {
   id: string;
   name: string;
@@ -89,6 +94,19 @@ export function ProductPreview() {
       ? singleProductData
       : null;
 
+  function getValueByKey(
+    extraInfos: ExtraInfo[],
+    key: string
+  ): string | undefined {
+    const info = extraInfos.find((info) => info.key === key);
+    return info ? info.value : undefined;
+  }
+
+  // Get the values
+  const gender = getValueByKey(product?.extra_infos || [], "gender");
+  const count = getValueByKey(product?.extra_infos || [], "count");
+  const rating = getValueByKey(product?.extra_infos || [], "rating");
+
   return (
     <section className="px-[2rem] lg:px-[7rem] mt-[5rem] mb-[9rem]">
       <div className="lg:flex justify-between">
@@ -159,13 +177,13 @@ export function ProductPreview() {
             <p className="text-textBlack text-[1.4rem] lg:text-[1.6rem]">
               {product?.name}{" "}
               <span className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem] lg:ml-[.8rem] ml-[.4rem]">
-                {product?.extra_infos[0].value}
+                {gender}
               </span>
             </p>
             <div className="flex items-center">
-              <StarRating rating={Number(product?.extra_infos[1]?.value)} />
+              <StarRating rating={Number(rating)} />
               <p className="text-textBlack text-[1.4rem] lg:text-[1.6rem]">
-                {product?.extra_infos[2]?.value}
+                {count}
               </p>
             </div>
             <p className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem]">
@@ -175,9 +193,9 @@ export function ProductPreview() {
           <div className="max-sm:w-[100%] max-sm:mx-[-2rem] hidden lg:block">
             <div className="flex gap-x-[1.2rem] mb-[2rem]">
               <p className="text-[1.6rem] font-[500] text-textBlack">Reviews</p>
-              <StarRating rating={Number(product?.extra_infos[0].value) ?? 1} />
+              <StarRating rating={Number(rating) ?? 1} />
               <p className="text-[1.6rem] font-[500] text-textBlack">
-                {Number(product?.extra_infos[1].value) ?? 1}{" "}
+                {Number(count) ?? 1}{" "}
               </p>
             </div>
           </div>
@@ -244,9 +262,9 @@ export function ProductPreview() {
           <div className="w-[100%] mt-[4rem] block sm:hidden ">
             <div className="flex gap-x-[1.2rem] mb-[2rem]">
               <p className="text-[1.6rem] font-[500] text-textBlack">Reviews</p>
-              <StarRating rating={Number(product?.extra_infos[1].value) ?? 1} />
+              <StarRating rating={Number(rating) ?? 1} />
               <p className="text-[1.6rem] font-[500] text-textBlack">
-                {Number(product?.extra_infos[2].value) ?? 1}
+                {Number(count) ?? 1}
               </p>
             </div>
           </div>
