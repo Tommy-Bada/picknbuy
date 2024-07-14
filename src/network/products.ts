@@ -98,7 +98,7 @@ interface SingleProduct {
 
 export const getProducts = async (page: number): Promise<PaginatedResponse> => {
   return API.get<PaginatedResponse>(
-    `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=${timbuOrganizationID}&reverse_sort=false&page=${page}&size=10&Appid=${timbuAPIID}&Apikey=${timbuAPIKey}`
+    `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=${timbuOrganizationID}&reverse_sort=false&page=${page}&size=12&Appid=${timbuAPIID}&Apikey=${timbuAPIKey}`
   );
 };
 
