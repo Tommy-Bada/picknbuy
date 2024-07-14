@@ -1,24 +1,39 @@
 import { useState } from "react";
-import {
-  mastercard,
-  payIcon,
-  testImage,
-  verve,
-} from "../assets/imagesAndIcons";
+import { mastercard, payIcon, verve } from "../assets/imagesAndIcons";
 import Button from "../shared/Button";
 import InputField from "../shared/InputField";
 import SuccessModal from "../shared/SuccessModal";
-import { useSearchParams } from "react-router-dom";
+
+interface CartItem {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  isActive: boolean;
+  quantity: number;
+  totalPrice: number;
+}
 
 export default function CheckoutBox() {
   const [modal, setModal] = useState<boolean>(false);
-  const [getParams] = useSearchParams();
-  const image = getParams.get("image");
-  const price = getParams.get("price");
-  const name = getParams.get("name");
-  const gender = getParams.get("gender");
-  // const size = getParams.get("size");
-  // const quantity = getParams.get("quantity");
+
+  // Fetch cart data from localStorage
+  const cartData: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+
+  // State to store cart items
+  const cart = cartData;
+
+  const totalAmount = cart.reduce(
+    (accumulator, product) => accumulator + product.totalPrice,
+    0
+  );
+
+  function calculateTotalWithVAT(total: number, vatRate: number) {
+    return total + total * vatRate;
+  }
+
+  const totalWithVAT = calculateTotalWithVAT(totalAmount, 0.0075);
+
   return (
     <section className="px-[2rem] lg:px-[7rem] mt-[5rem] lg:mt-[7rem] mb-[7rem] lg:mb-[10rem] ">
       <div className="lg:flex justify-between flex max-[1023px]:flex-col-reverse lg:border-t">
@@ -42,7 +57,7 @@ export default function CheckoutBox() {
               <img src={verve} alt="likes icon" width="100%" height="auto" />
             </div>
           </div>
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <div className="lg:flex justify-between">
               <div className="w-[100%] lg:w-[49%] mb-[1.6rem]">
                 <InputField
@@ -163,7 +178,9 @@ export default function CheckoutBox() {
                 icon={payIcon}
                 flipIcon
                 gap="gap-x-[1rem]"
-                handleClick={() => setModal(true)}
+                handleClick={() => {
+                  setModal(true);
+                }}
               />
             </div>
           </form>
@@ -173,46 +190,53 @@ export default function CheckoutBox() {
           <h2 className="text-[2.4rem] text-textBlack font-500 ">
             Order summary
           </h2>
-          <div className="flex mt-[1.6rem] w-[100%]">
-            <div className="lg:mr-[2rem] mr-[1rem] w-[18rem] lg:w-[15rem]">
-              <img
-                src={image ?? testImage}
-                alt="product image"
-                width="100%"
-                height="auto"
-                className="rounded-[1.75rem] object-cover object-right  w-[12rem] h-[12rem] lg:w-[11rem] lg:h-[11rem]"
-              />
-            </div>
-            <div className="w-[100%]">
-              <div>
-                <div className="flex justify-between items-center mb-[1rem] ">
-                  <p className="text-[1.6rem] lg:text-[2.4rem] text-textBlack">
-                    {name ?? "Product"}
-                  </p>
-                  <p className="text-textBlack text-[1.6rem] lg:text-[2.4rem]">
-                    ${price ?? 100}
-                  </p>
+          {cart.map((product) => (
+            <div className="flex mt-[1.6rem] w-[100%]" key={product.id}>
+              <div className="lg:mr-[2rem] mr-[1rem] w-[18rem] lg:w-[15rem]">
+                <img
+                  src={product.image}
+                  alt="product image"
+                  width="100%"
+                  height="auto"
+                  className="rounded-[1.75rem] object-cover object-right  w-[12rem] h-[12rem] lg:w-[11rem] lg:h-[11rem]"
+                />
+              </div>
+              <div className="w-[100%]">
+                <div>
+                  <div className="flex justify-between items-center mb-[1rem] ">
+                    <p className="text-[1.6rem] lg:text-[2.4rem] text-textBlack">
+                      {product.name}
+                    </p>
+                    <p className="text-textBlack text-[1.6rem] lg:text-[2.4rem]">
+                      NGN {product.price.toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="flex justify-between items-center mb-[1rem] ">
+                    <p className="text-reviewTextGrey text-[1.4rem] lg:text-[1.6rem]">
+                      {product.quantity}
+                    </p>
+                    <p className="text-reviewTextGrey text-[1.4rem] lg:text-[1.6rem]">
+                      NGN {product.totalPrice.toLocaleString()}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-reviewTextGrey text-[1.4rem] lg:text-[1.6rem]">
-                  {gender ?? 42}
-                </p>
               </div>
             </div>
-          </div>
+          ))}
           <div className="flex items-center justify-between mb-[1rem] mt-[2.4rem] lg:mt-[5rem]">
             <p className="text-[1.4rem] lg:text-[1.8rem] text-textBlack ">
               Subtotal
             </p>
             <p className="text-textBlack font-[500] text-[1.4rem] lg:text-[1.8rem]">
-              ${price ?? 100}
+              NGN {totalAmount.toLocaleString()}
             </p>
           </div>
           <div className="flex items-center justify-between mb-[1rem]">
             <p className="text-[1.6rem] lg:text-[2.4rem] text-textBlack">
-              Total
+              Total(VAT)
             </p>
             <p className=" text-textBlack font-[500] text-[1.6rem] lg:text-[2.4rem]">
-              ${price ?? 100}
+              NGN {totalWithVAT.toLocaleString()}
             </p>
           </div>
         </div>

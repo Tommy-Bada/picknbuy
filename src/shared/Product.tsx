@@ -1,19 +1,19 @@
-import StarRating from "./StarRating";
+// import StarRating from "./StarRating";
 interface ProductProps {
   src: string;
   name: string;
-  gender: string;
-  rating: number;
-  count: number;
+  gender?: string;
+  rating?: number;
+  count?: number;
   price: number;
   handleClick: () => void;
 }
 export default function Product({
   src,
   name,
-  gender,
-  rating,
-  count,
+  // gender,
+  // rating,
+  // count,
   price,
   handleClick,
 }: ProductProps) {
@@ -31,13 +31,13 @@ export default function Product({
       <div className="mt-[1rem]  w-[15rem]  lg:w-[20rem] ">
         <p className="text-textBlack text-[1.4rem] lg:text-[1.6rem]">
           {name}{" "}
-          <span className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem] lg:ml-[.8rem] ml-[.4rem]">{`(${gender})`}</span>
+          {/* <span className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem] lg:ml-[.8rem] ml-[.4rem]">{`(${gender})`}</span> */}
         </p>
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <StarRating rating={rating} />
           <p className="text-textBlack text-[1.4rem] lg:text-[1.6rem]">{`(${count})`}</p>
-        </div>
-        <p className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem]">{`$${price}`}</p>
+        </div> */}
+        <p className="text-pnbPurple text-[1.4rem] lg:text-[1.6rem]">{`NGN ${price.toLocaleString()}`}</p>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Logo from "../shared/Logo";
 import Search from "../shared/Search";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface ImageProps {
   src: string;
@@ -36,6 +37,26 @@ export function Hero() {
     }
     handleResize();
   }, []);
+
+  const fetchProducts = async () => {
+    const response = await axios.get(
+      "https://timbu-get-single-product.reavdev.workers.dev/9e7ccfc7b6824f679b8322eecb34c4eb",
+      {
+        params: {
+          organization_id: "8fd4e62556d040678e8db4d52b326808",
+          reverse_sort: false,
+          page: 1,
+          size: 5,
+          Appid: "X37P4VXA05B6OG1",
+          Apikey: "8e932ac9afda4fa4b0ea47b7a398da7520240713123017123908",
+        },
+      }
+    );
+    return response.data;
+  };
+
+  fetchProducts();
+
   return (
     <section>
       <div className="lg:flex lg:justify-center">
