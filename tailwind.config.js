@@ -15,6 +15,7 @@ export default {
         reviewTextGrey: "#5F6D7E",
         formInputGrey: "rgba(16, 24, 40, 0.5)",
         formTitleBlack: "#101828",
+        lightBoxPurple: "rgba(120, 51, 174, 0.1)",
       },
       backgroundImage: {
         logoBlur: "url('/src/assets/images/Gradient+Blur.png')",

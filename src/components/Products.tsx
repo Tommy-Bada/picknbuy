@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Products() {
   const [page, setPage] = useState<number>(1);
 
-  const { data } = useQuery({
+  const { data, isPending } = useQuery({
     queryFn: () => getProducts(page),
     queryKey: ["ALL_PRODUCTS", page],
   });
@@ -33,7 +33,25 @@ export default function Products() {
               />
             ))}
         </div>
+        {isPending && (
+          <div className="flex flex-wrap gap-[2rem]">
+            {Array.from({ length: 12 }).map((_, index) => (
+              <div key={index}>
+                <div className="rounded-[1.6rem] w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] bg-lightBoxPurple mb-[2rem] animate-pulse"></div>
+                <div className="mt-[1rem]  w-[15rem] lg:w-[20rem]">
+                  <p className="text-textBlack h-[1.4rem] lg:h-[2rem] w-[13rem] lg:w-[18rem] bg-lightBoxPurple mb-[1rem] animate-pulse"></p>
+                  <p className="text-pnbPurple h-[1.4rem] lg:h-[2rem] w-[12rem] lg:w-[17rem] bg-lightBoxPurple animate-pulse"></p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
+      {data && "error" in data && (
+        <p className="text-[1.6rem] text-red-400 font-[600]">
+          Couldn't Fetch Products. Please try again
+        </p>
+      )}
       <div className="flex justify-between my-[2rem] lg:my-[5rem]">
         <div className="w-[12rem]">
           <Button

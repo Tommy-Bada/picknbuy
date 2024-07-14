@@ -1,4 +1,7 @@
 import API from "./API";
+const timbuAPIKey = import.meta.env.VITE_TINMBU_API_KEY;
+const timbuAPIID = import.meta.env.VITE_TIMBU_API_ID;
+const timbuOrganizationID = import.meta.env.VITE_TIMBU_ORGANIZATION_ID;
 
 interface Price {
   NGN: [number, number | null, string | number[]];
@@ -63,19 +66,6 @@ interface ExtraInfo {
   value_dt: string | null;
 }
 
-//   interface Photo {
-//     model_name: string;
-//     model_id: string;
-//     organization_id: string;
-//     filename: string;
-//     url: string;
-//     is_featured: boolean;
-//     save_as_jpg: boolean;
-//     is_public: boolean;
-//     file_rename: boolean;
-//     position: number;
-//   }
-
 interface SingleProduct {
   name: string;
   description: string;
@@ -108,12 +98,12 @@ interface SingleProduct {
 
 export const getProducts = async (page: number): Promise<PaginatedResponse> => {
   return API.get<PaginatedResponse>(
-    `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=8fd4e62556d040678e8db4d52b326808&reverse_sort=false&page=${page}&size=5&Appid=X37P4VXA05B6OG1&Apikey=8e932ac9afda4fa4b0ea47b7a398da7520240713123017123908`
+    `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=${timbuOrganizationID}&reverse_sort=false&page=${page}&size=10&Appid=${timbuAPIID}&Apikey=${timbuAPIKey}`
   );
 };
 
 export const getSingleProduct = async (id: string): Promise<SingleProduct> => {
   return API.get<SingleProduct>(
-    `https://timbu-get-single-product.reavdev.workers.dev/${id}?organization_id=8fd4e62556d040678e8db4d52b326808&reverse_sort=false&page=1&size=10&Appid=X37P4VXA05B6OG1&Apikey=8e932ac9afda4fa4b0ea47b7a398da7520240713123017123908`
+    `https://timbu-get-single-product.reavdev.workers.dev/${id}?organization_id=${timbuOrganizationID}&reverse_sort=false&page=1&size=12&Appid=${timbuAPIID}&Apikey=${timbuAPIKey}`
   );
 };

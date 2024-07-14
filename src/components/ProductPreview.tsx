@@ -77,17 +77,18 @@ export function ProductPreview() {
     return items.some((item) => item.id === id);
   };
 
-  const { data } = useQuery({
+  const { data, isPending } = useQuery({
     queryFn: () => getProducts(1),
     queryKey: ["ALL_PRODUCTS"],
   });
 
   const products = data && !("error" in data) ? data : null;
 
-  const { data: singleProductData } = useQuery({
-    queryFn: () => getSingleProduct(id ?? ""),
-    queryKey: ["SINGLE_PRODUCT"],
-  });
+  const { data: singleProductData, isPending: isPendingSingleProductData } =
+    useQuery({
+      queryFn: () => getSingleProduct(id ?? ""),
+      queryKey: ["SINGLE_PRODUCT"],
+    });
 
   const product =
     singleProductData && !("error" in singleProductData)
@@ -270,6 +271,32 @@ export function ProductPreview() {
           </div>
         </div>
       </div>
+      {isPendingSingleProductData && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24px"
+          height="24px"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+            opacity="0.25"
+          />
+          <path
+            fill="currentColor"
+            d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"
+          >
+            <animateTransform
+              attributeName="transform"
+              dur="0.75s"
+              repeatCount="indefinite"
+              type="rotate"
+              values="0 12 12;360 12 12"
+            />
+          </path>
+        </svg>
+      )}
       <div className="mt-[7rem] lg:mt-[10rem]">
         <h2 className="text-[2.4rem] text-pnbPurple font-[500] mb-[3rem] lg:mb-[4rem]">
           You may also like
@@ -283,16 +310,32 @@ export function ProductPreview() {
                 name={item.name}
                 price={item.current_price[0].NGN[0]}
                 handleClick={() => {
-                  navigate(
-                    `/product?id=${item.id}`
-                    // `/${item.url}?image=${item.src}&name=${item.name}&gender=${item.gender}&price=${item.price}`
-                  );
+                  navigate(`/product?id=${item.id}`);
                   window.location.reload();
                 }}
               />
             ))}
         </div>
       </div>
+      {isPending && (
+        <div className="flex flex-wrap gap-[2rem]">
+          {Array.from({ length: 12 }).map((_, index) => (
+            <div key={index}>
+              <div className="rounded-[1.6rem] w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] bg-lightBoxPurple mb-[2rem] animate-pulse"></div>
+              <div className="mt-[1rem]  w-[15rem] lg:w-[20rem]">
+                <p className="text-textBlack h-[1.4rem] lg:h-[2rem] w-[13rem] lg:w-[18rem] bg-lightBoxPurple mb-[1rem] animate-pulse"></p>
+                <p className="text-pnbPurple h-[1.4rem] lg:h-[2rem] w-[12rem] lg:w-[17rem] bg-lightBoxPurple animate-pulse"></p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {data && "error" in data && (
+        <p className="text-[1.6rem] text-red-400 font-[600]">
+          Couldn't Fetch Products. Please try again
+        </p>
+      )}
     </section>
   );
 }
