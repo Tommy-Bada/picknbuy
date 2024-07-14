@@ -34,7 +34,7 @@ export default function Products() {
             ))}
         </div>
         {isPending && (
-          <div className="flex flex-wrap gap-[2rem]">
+          <div className="flex flex-wrap justify-between gap-[2rem]">
             {Array.from({ length: 12 }).map((_, index) => (
               <div key={index}>
                 <div className="rounded-[1.6rem] w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] bg-lightBoxPurple mb-[2rem] animate-pulse"></div>
